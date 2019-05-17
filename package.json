@@ -1,0 +1,53 @@
+{
+  "name": "factorial-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "computerFactorial.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./server -s",
+    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha  --exit tests/*js ",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/computeFactorial.js",
+    "serve": "node dist/computeFactorial"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lemoissonM/factorialproject.git"
+  },
+  "author": "harvest Lemoisson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lemoissonM/factorialproject/issues"
+  },
+  "homepage": "https://github.com/lemoissonM/factorialproject#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "babel-core": "^6.26.3",
+    "babel-plugin-istanbul": "^5.1.4",
+    "babel-preset-env": "^1.7.0",
+    "coveralls": "^3.0.3",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^14.1.0"
+  },
+  "dependencies": {
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}
